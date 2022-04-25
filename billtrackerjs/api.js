@@ -2,14 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3001;
 const cors = require('cors');
-const knex = require('knex')(require('./knexfile.js')['development']);
+const knex = require('knex')(require('./src/knex')['development']);
 const bodyParser = require('body-parser')
 
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('api/addedbills', (req, res) =>{
+app.get('/api/addedbills', (req, res) =>{
+    console.log('bill quere started')
     knex('bill_list')
         .select('*')
         .from('bill_list')
@@ -22,7 +23,7 @@ app.put('api/addbill', (req, res) =>{
 
 })
 
-app.delete('api/removebill/:billis', (req, res) => {
+app.delete('api/removebill/:billid', (req, res) => {
 
 })
 

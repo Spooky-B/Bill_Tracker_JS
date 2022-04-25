@@ -1,9 +1,9 @@
 module.exports = {
 
     development: {
-      client: 'mysql',
+      client: 'mysql2',
       connection: {
-        host: 'local-host',
+        host: 'localhost',
         port: '3306',
         database: 'bills',
         user:     'root',
